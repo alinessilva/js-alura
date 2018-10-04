@@ -3,28 +3,32 @@ var title = document.querySelector(".title");
 
 title.textContent = "O Nutricionista"
 
-var patience = document.getElementById("first-patient");
+var patients = document.querySelectorAll(".patient");
 
-var weight = patience.querySelector(".info-weight").textContent;
+for (var i = 0; i < patients.length; i++) {
+    var patient = patients[i];
 
-var height = patience.querySelector(".info-height").textContent;
+    var weight = patient.querySelector(".info-weight").textContent;
 
-var tdImc = patience.querySelector(".info-imc");
+    var height = patient.querySelector(".info-height").textContent;
 
-var trueWeight = true;
-var trueHeight = true;
+    var tdImc = patient.querySelector(".info-imc");
 
-if (weight <= 0 || weight > 200){
-    trueWeight = false;
-    tdImc.textContent = "Peso inválido!";
-}
+    var trueWeight = true;
+    var trueHeight = true;
 
-if (height <= 0 || height >=3.00){
-    trueHeight = false;
-    tdImc.textContent = "Altura inválida";
-}
+    if (weight <= 0 || weight > 200){
+        trueWeight = false;
+        tdImc.textContent = "Peso inválido!";
+    }
 
-if (trueWeight && trueHeight) {
-    var imc = weight / (height * height);
-    tdImc.textContent = imc;
+    if (height <= 0 || height >=3.00){
+        trueHeight = false;
+        tdImc.textContent = "Altura inválida";
+    }
+
+    if (trueWeight && trueHeight) {
+        var imc = weight / (height * height);
+        tdImc.textContent = imc.toFixed(2);
+    }
 }
