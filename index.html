@@ -6,10 +6,8 @@
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" type="text/css" href="css/reset.css">
 		<link rel="stylesheet" type="text/css" href="css/index.css">
-
 	</head>
 	<body>
-
 		<header>
 			<div class="container">
 				<h1 class="title">Nutrição</h1>
@@ -69,7 +67,29 @@
 						</tr>
 					</tbody>
 				</table>
-
+			</section>
+			<section class="container">
+				<h2 id="title-form">Adicionar novo paciente</h2>
+				<form>
+					<div>
+						<label for="name">Nome:</label>
+						<input id="name" name="name" type="text" placeholder="digite o nome do seu paciente" class="field">
+					</div>
+					<div class="group">
+						<label for="weight">Peso:</label>
+						<input id="weight" name="weight" type="text" placeholder="digite o peso do seu paciente" class="field field-medium">
+					</div>
+					<div class="group">
+						<label for="height">Altura:</label>
+						<input id="height" name="height" type="text" placeholder="digite a altura do seu paciente" class="field field-medium">
+					</div>
+					<div class="group">
+						<label for="fat">% de Gordura:</label>
+						<input id="fat" type="text" placeholder="digite a porcentagem de gordura do seu paciente" class="field field-medium">
+					</div>
+			
+					<button id="add-patient" class="button bto-main">Adicionar</button>
+				</form>
 			</section>
 		</main>
 		<script src="js/main.js"></script>
