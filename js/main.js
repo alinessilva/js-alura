@@ -20,11 +20,13 @@ for (var i = 0; i < patients.length; i++) {
     if (weight <= 0 || weight > 200){
         trueWeight = false;
         tdImc.textContent = "Peso inválido!";
+        patient.classList.add("invalid-patient");
     }
 
     if (height <= 0 || height >=3.00){
         trueHeight = false;
         tdImc.textContent = "Altura inválida";
+        patient.classList.add("invalid-patient");
     }
 
     if (trueWeight && trueHeight) {
