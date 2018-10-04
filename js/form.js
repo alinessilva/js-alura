@@ -15,6 +15,8 @@ var table = document.getElementById("table-patient");
 
 table.appendChild(patientTr);
 
+form.reset();
+
 });
 
 function getPatientForm(form){
