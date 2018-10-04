@@ -32,17 +32,11 @@ function buildTr(patient){
     var patientTr = document.createElement("tr");
     patientTr.classList.add("patient");
 
-    var nameTd = buildTd(patient.name, "info-name");
-    var weightTd = buildTd(patient.weight, "info-weight");
-    var heightTd = buildTd(patient.height, "info-height");
-    var fatTd = buildTd(patient.fat, "info-fat");
-    var imcTd = buildTd(patient.imc, "info-imc");
-
-    patientTr.appendChild(nameTd);
-    patientTr.appendChild(weightTd);
-    patientTr.appendChild(heightTd);
-    patientTr.appendChild(fatTd);
-    patientTr.appendChild(imcTd);
+    patientTr.appendChild(buildTd(patient.name, "info-name"));
+    patientTr.appendChild(buildTd(patient.weight, "info-weight"));
+    patientTr.appendChild(buildTd(patient.height, "info-height"));
+    patientTr.appendChild(buildTd(patient.fat, "info-fat"));
+    patientTr.appendChild(buildTd(patient.imc, "info-imc"));
 
     return patientTr;
 }
