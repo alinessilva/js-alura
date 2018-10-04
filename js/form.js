@@ -38,12 +38,6 @@ function buildTr(patient){
     var fatTd = buildTd(patient.fat, "info-fat");
     var imcTd = buildTd(patient.imc, "info-imc");
 
-    nameTd.textContent = patient.name;
-    weightTd.textContent = patient.weight;
-    heightTd.textContent = patient.height;
-    fatTd.textContent = patient.fat;
-    imcTd.textContent = patient.imc;
-
     patientTr.appendChild(nameTd);
     patientTr.appendChild(weightTd);
     patientTr.appendChild(heightTd);
