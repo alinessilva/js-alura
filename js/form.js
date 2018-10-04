@@ -30,12 +30,13 @@ function getPatientForm(form){
 
 function buildTr(patient){
     var patientTr = document.createElement("tr");
+    patientTr.classList.add("patient");
 
-    var nameTd = document.createElement("td");
-    var weightTd = document.createElement("td");
-    var heightTd = document.createElement("td");
-    var fatTd = document.createElement("td");
-    var imcTd = document.createElement("td");
+    var nameTd = buildTd(patient.name, "info-name");
+    var weightTd = buildTd(patient.weight, "info-weight");
+    var heightTd = buildTd(patient.height, "info-height");
+    var fatTd = buildTd(patient.fat, "info-fat");
+    var imcTd = buildTd(patient.imc, "info-imc");
 
     nameTd.textContent = patient.name;
     weightTd.textContent = patient.weight;
@@ -50,4 +51,11 @@ function buildTr(patient){
     patientTr.appendChild(imcTd);
 
     return patientTr;
+}
+
+function buildTd(content, className){
+    var td = document.createElement("td");
+    td.textContent = content;
+    td.classList.add(className);
+    return td;
 }
