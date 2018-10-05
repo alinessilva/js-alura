@@ -4,13 +4,15 @@ event.preventDefault();
 
 var form = document.getElementById("add-form");
 
-// Extrai info do paciente do form
 var patient = getPatientForm(form);
 
-// Cria a td e tr do paciente
 var patientTr = buildTr(patient);
 
-// Add o paciente na tabela
+if (!validPatient(patient)){
+    console.log("Inválido!");
+    return;
+}
+
 var table = document.getElementById("table-patient");
 
 table.appendChild(patientTr);
@@ -48,4 +50,10 @@ function buildTd(content, className){
     td.textContent = content;
     td.classList.add(className);
     return td;
+}
+
+function validPatient(patient){
+    if (validWeight(patient.weight)){
+        return true;
+    }
 }
