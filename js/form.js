@@ -8,7 +8,16 @@ var patient = getPatientForm(form);
 
 var patientTr = buildTr(patient);
 
-if (!validPatient(patient)){
+var errors = validPatient(patient);
+
+if (errors.length > 0) {
+    var msgError = document.getElementById("msg-error");  
+    msgError.textContent = errors;
+    form.classList.add("style-form");
+    return;
+}
+
+if (!validPatient(patient)) {
     console.log("Inválido!");
     return;
 }
@@ -21,7 +30,7 @@ form.reset();
 
 });
 
-function getPatientForm(form){
+function getPatientForm(form) {
     var patient = {
         name: form.name.value,
         weight: form.weight.value,
@@ -32,7 +41,7 @@ function getPatientForm(form){
     return patient
 }
 
-function buildTr(patient){
+function buildTr(patient) {
     var patientTr = document.createElement("tr");
     patientTr.classList.add("patient");
 
@@ -45,7 +54,7 @@ function buildTr(patient){
     return patientTr;
 }
 
-function buildTd(content, className){
+function buildTd(content, className) {
     var td = document.createElement("td");
     td.textContent = content;
     td.classList.add(className);
@@ -53,7 +62,11 @@ function buildTd(content, className){
 }
 
 function validPatient(patient){
-    if (validWeight(patient.weight)){
-        return true;
-    }
+    var errors = [];
+
+    if (!validWeight(patient.weight)) errors.push("Peso inválido, tente novamente..."); 
+
+    if (!validHeight(patient.height)) errors.push("Altura inválida, tente novamente...");
+
+    return errors;
 }
