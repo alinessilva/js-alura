@@ -11,8 +11,7 @@ var patientTr = buildTr(patient);
 var errors = validPatient(patient);
 
 if (errors.length > 0) {
-    var msgError = document.getElementById("msg-error");  
-    msgError.textContent = errors;
+    showMsgsError(errors);  
     form.classList.add("style-form");
     return;
 }
@@ -27,6 +26,9 @@ var table = document.getElementById("table-patient");
 table.appendChild(patientTr);
 
 form.reset();
+
+var ul = document.getElementById("msgs-error");
+ul.innerHTML = "";
 
 });
 
@@ -61,12 +63,31 @@ function buildTd(content, className) {
     return td;
 }
 
-function validPatient(patient){
+function validPatient(patient) {
     var errors = [];
 
+    if (patient.name.length == 0) errors.push("O campo nome é obrigatório...");
+    
+    if (patient.weight.length == 0) errors.push("O campo peso é obrigatório...")
+    
+    if (patient.height.length == 0) errors.push("O campo altura é obrigatório...")
+    
+    if (patient.fat.length == 0) errors.push("O campo gordura é obrigatório...");
+    
     if (!validWeight(patient.weight)) errors.push("Peso inválido, tente novamente..."); 
 
     if (!validHeight(patient.height)) errors.push("Altura inválida, tente novamente...");
 
     return errors;
+}
+
+function showMsgsError(errors) {
+    var ul = document.getElementById("msgs-error");
+    ul.innerHTML = "";
+
+    errors.forEach (function(error){
+        var li = document.createElement("li");
+        li.textContent = error;
+        ul.appendChild(li);
+    });
 }
