@@ -9,7 +9,8 @@ fildFilter.addEventListener("input", function(){
             var patient = patients[i];
             var tdName = patient.querySelector(".info-name");
             var name = tdName.textContent;
-            if (name != this.value){
+            var expression = new RegExp(this.value, "i");
+            if ( !expression.test(name)){
                 patient.classList.add("invisible");
             } else {
                 patient.classList.remove("invisible");
