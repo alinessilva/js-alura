@@ -4,7 +4,11 @@ btnAdd.addEventListener("click", function(){
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "http://api-pacientes.herokuapp.com/pacientes");
     xhr.addEventListener("load", function(){
-        console.log(xhr.responseText);
+    var reply = xhr.responseText;
+    var patients = JSON.parse(reply);
+    patients.forEach(function(patient){
+        addPatientTable(patient);
     });
+});
     xhr.send();
 });
