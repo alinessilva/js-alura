@@ -12,3 +12,6 @@ btnAdd.addEventListener("click", function(){
 });
     xhr.send();
 });
+
+// TO DO 
+// Add função com os nomes em português do JSON
