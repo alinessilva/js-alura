@@ -3,10 +3,7 @@ addBtn.addEventListener("click", function(event){
 event.preventDefault();    
 
 var form = document.getElementById("add-form");
-
 var patient = getPatientForm(form);
-
-var patientTr = buildTr(patient);
 
 var errors = validPatient(patient);
 
@@ -21,16 +18,19 @@ if (!validPatient(patient)) {
     return;
 }
 
-var table = document.getElementById("table-patient");
-
-table.appendChild(patientTr);
+addPatientTable(patient);
 
 form.reset();
-
 var ul = document.getElementById("msgs-error");
 ul.innerHTML = "";
 
 });
+
+function addPatientTable(patient) {
+    var patientTr = buildTr(patient);
+    var table = document.getElementById("table-patient");
+    table.appendChild(patientTr);
+}
 
 function getPatientForm(form) {
     var patient = {
