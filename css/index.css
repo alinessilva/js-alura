@@ -143,3 +143,8 @@ button[disabled=disabled], button:disabled {
 .style-form {
 	padding-top: 1em;
 }
+
+.fadeOut {
+	opacity: 0;
+	transition: 0.5s;
+}
